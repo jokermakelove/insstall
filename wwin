@@ -46,8 +46,8 @@ $shortcut.TargetPath = $SourceFilePath
 $shortcut.WindowStyle = 1
 $ShortCut.Hotkey = "F1"; $shortcut.Save()
 taskkill /f /im FastExecuteScript.exe
-Start "C:\Users\Administrator\Downloads\Shutdown.exe";sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";;sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";;sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";;sleep 50;Start "C:\Users\Administrator\Downloads\click.exe";
-
+Start "C:\Users\Administrator\Downloads\Shutdown.exe"
+sleep 50
 Start "C:\Users\Administrator\Downloads\click.exe"
 sleep 30
 Start "C:\Users\Administrator\Downloads\click.exe"
